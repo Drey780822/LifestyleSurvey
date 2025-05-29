@@ -1,119 +1,115 @@
-Lifestyle Preferences Survey
-A web app developed for the Tshimologong Software Development Internship 2025–2026 practical test. It collects user lifestyle preferences, stores them in-browser using SQLite via WebAssembly, and presents results with interactive analysis — all without a backend.
+# Lifestyle Preferences Survey
 
-🔍 Overview
+A web app developed for the **Tshimologong Software Development Internship 2025–2026** practical test. It collects user lifestyle preferences, stores them in-browser using **SQLite via WebAssembly**, and presents results with interactive analysis — all without a backend.
+
+---
+
+## 🔍 Overview
+
 Users complete a lifestyle survey. Inputs are validated and stored locally in a browser-based SQLite database. Results are analyzed and visualized instantly — no internet or server required.
 
-✅ Features
-Survey Form:
+---
 
-Collects: name, email, date of birth, contact number.
+## ✅ Features
 
-Food preferences via checkboxes (e.g., Pizza, Pap & Wors).
+### Survey Form:
+- Collects: full name, email, date of birth, contact number.
+- Food preferences (Pizza, Pasta, Pap & Wors, Other) via checkboxes.
+- Lifestyle ratings (movies, radio, eating out, TV) on a 1–5 scale using tooltips.
+- Placeholders help guide user input.
 
-Lifestyle ratings (movies, radio, eating out, TV) on a 1–5 scale with tooltips.
+### Validation:
+- All fields are required.
+- Email must be in a valid format.
+- Age must be between 5 and 120 (calculated from DOB).
+- At least one food option must be selected.
+- All lifestyle questions must be answered.
 
-Input guidance via placeholders.
+### Results Page:
+- Total number of submissions
+- Average age of participants
+- Oldest and youngest ages
+- Percentage of people who like each food
+- Average rating per lifestyle activity
+- Displays "No Surveys Available" if database is empty
 
-Validation Rules:
+### Additional Features:
+- Confirmation modal after submission
+- "Clear All Surveys" button to reset data
+- Export results as `.json` file
+- Tooltips for ratings
+- Data saved with `localStorage` (persistent across sessions)
 
-All fields required.
+---
 
-Valid email format.
+## 🚀 How to Run
 
-Age must be between 5–120.
-
-At least one food selected.
-
-All lifestyle questions answered.
-
-Results Page:
-
-Total submissions
-
-Average, oldest & youngest ages
-
-Food preference percentages
-
-Average ratings per lifestyle factor
-
-Message shown if no surveys are available
-
-Extras:
-
-Confirmation modal on submit
-
-"Clear All Surveys" to reset data
-
-Export results as .json
-
-Data persisted using localStorage
-
-🚀 How to Run
-1. Clone:
-
-bash
-Copy
-Edit
+### 1. Clone the Repo:
+```bash
 git clone https://github.com/drey780822/LifestyleSurvey.git
 2. Download SQLite WebAssembly:
+Download sql-wasm.wasm from the sql.js releases
 
-Download sql-wasm.wasm from sql.js releases
+Place it in the js/ folder
 
-Place in /js folder
+3. Open in Browser:
+Open index.html in Chrome, Firefox, or another modern browser
 
-3. Launch:
+Submit a survey
 
-Open index.html in a modern browser (Chrome/Firefox)
+Open results.html to view analysis
 
-Submit a survey → View results via results.html
-
-4. Optional – Use Local Server (recommended for testing):
-
+4. Optional – Run with Local Server:
 bash
 Copy
 Edit
 cd LifestyleSurvey
 python -m http.server 8000
-Open http://localhost:8000
+Then visit: http://localhost:8000
 
-🌐 Deploy on GitHub Pages
-Push your code to GitHub
+🌐 GitHub Pages Deployment
+Push to your GitHub repository
 
-In repo: Settings → Pages
+Go to Settings → Pages
 
-Select branch: main, folder: / (root)
+Set Branch to main, Folder to / (root)
 
-App will be live at:
+Wait 1–5 minutes for deployment
+
+Your site will be live at:
 👉 https://drey780822.github.io/LifestyleSurvey/
 
-📁 Key Files
-File	Description
-index.html	Survey form & modal
-results.html	Results viewer & export/reset options
-css/styles.css	Custom theme styling
-js/main.js	Form logic, validation, export/reset
+📁 Project Structure
+File/Folder	Description
+index.html	Survey form with confirmation modal
+results.html	Displays survey analysis and export/clear
+css/styles.css	Custom styles (teal, cream, coral theme)
+js/main.js	UI logic, validation, export & clear logic
 js/db.js	SQLite operations
-js/sql-wasm.js	SQLite JS wrapper
-js/sql-wasm.wasm	WebAssembly binary
+js/sql-wasm.js	SQLite wrapper
+js/sql-wasm.wasm	WebAssembly binary for in-browser SQLite
 
-🧪 Tips for Testing
-Try invalid emails, missing fields, age under 5
+🧪 Testing Tips
+Submit invalid data (e.g., wrong email, age < 5) to check validation
 
-Submit, then check results on results.html
+Clear surveys and verify empty state on results page
 
-Clear surveys → Confirm "No Surveys Available" shows
+Submit new survey to refresh results
 
-Submit again → Verify data refresh
+Export .json file and check contents
 
-Export JSON → Check downloaded file
+Hover over rating table to test tooltips
 
-🙌 Credits
+🙌 Acknowledgments
 Created by Thabang Dikotope
-For the Tshimologong Software Dev Internship 2025–2026
-Built with HTML, CSS, JS, SQLite, WebAssembly
+For the Tshimologong Software Development Internship 2025–2026
+Built with HTML, CSS, JavaScript, SQLite, and WebAssembly
 
 🔗 Links
-Repo: https://github.com/drey780822/LifestyleSurvey
+GitHub Repository: https://github.com/drey780822/LifestyleSurvey
 
 Live App: https://drey780822.github.io/LifestyleSurvey/
+
+yaml
+Copy
+Edit
