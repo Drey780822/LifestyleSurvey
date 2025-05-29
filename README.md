@@ -129,8 +129,6 @@ Test table-based ratings and tooltips for usability.
 
 GitHub Pages: If sql-wasm.wasm fails to load (check Console for errors), host it externally (e.g., via a CDN) and update db.js’s locateFile path.
 
-🎥 Demo Video
-For the internship submission, record a 2–3 minute video demonstrating:
 
 Submitting a survey with valid and invalid inputs to show validation.
 Viewing results in results.html with all metrics displayed.
@@ -149,5 +147,4 @@ Built with HTML, CSS, JavaScript, SQLite, and WebAssembly.
 
 Repository: https://github.com/drey780822/LifestyleSurvey
 GitHub Pages: https://drey780822.github.io/LifestyleSurvey/
-Video: Upload to the internship submission link by June 4, 2025.
 
