@@ -2,13 +2,11 @@
 
 A web app developed for the **Tshimologong Software Development Internship 2025–2026** practical test. It collects user lifestyle preferences, stores them in-browser using **SQLite via WebAssembly**, and presents results with interactive analysis — all without a backend.
 
----
 
 ## 🔍 Overview
 
 Users complete a lifestyle survey. Inputs are validated and stored locally in a browser-based SQLite database. Results are analyzed and visualized instantly — no internet or server required.
 
----
 
 ## ✅ Features
 
@@ -40,12 +38,10 @@ Users complete a lifestyle survey. Inputs are validated and stored locally in a 
 - Tooltips for ratings
 - Data saved with `localStorage` (persistent across sessions)
 
----
 
 ## 🚀 How to Run
 
 ### 1. Clone the Repo:
-```bash
 git clone https://github.com/drey780822/LifestyleSurvey.git
 2. Download SQLite WebAssembly:
 Download sql-wasm.wasm from the sql.js releases
@@ -59,25 +55,6 @@ Submit a survey
 
 Open results.html to view analysis
 
-4. Optional – Run with Local Server:
-bash
-Copy
-Edit
-cd LifestyleSurvey
-python -m http.server 8000
-Then visit: http://localhost:8000
-
-🌐 GitHub Pages Deployment
-Push to your GitHub repository
-
-Go to Settings → Pages
-
-Set Branch to main, Folder to / (root)
-
-Wait 1–5 minutes for deployment
-
-Your site will be live at:
-👉 https://drey780822.github.io/LifestyleSurvey/
 
 📁 Project Structure
 File/Folder	Description
@@ -109,7 +86,3 @@ Built with HTML, CSS, JavaScript, SQLite, and WebAssembly
 GitHub Repository: https://github.com/drey780822/LifestyleSurvey
 
 Live App: https://drey780822.github.io/LifestyleSurvey/
-
-yaml
-Copy
-Edit
