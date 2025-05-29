@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Results - Lifestyle Preferences Survey</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Lifestyle Preferences Survey</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Fill Out Survey</a></li>
+            <li><a href="results.html">View Survey Results</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="results-container">
+            <h1>Survey Results</h1>
+            <div id="results">
+                <p id="noSurveys" class="error">No Surveys Available</p>
+                <p><strong>Total number of surveys:</strong> <span id="totalSurveys"></span></p>
+                <p><strong>Average Age:</strong> <span id="averageAge"></span></p>
+                <p><strong>Oldest person who participated:</strong> <span id="oldestAge"></span></p>
+                <p><strong>Youngest person who participated:</strong> <span id="youngestAge"></span></p>
+                <p><strong>Percentage of people who like Pizza:</strong> <span id="pizzaPercentage"></span>%</p>
+                <p><strong>Percentage of people who like Pasta:</strong> <span id="pastaPercentage"></span>%</p>
+                <p><strong>Percentage of people who like Pap and Wors:</strong> <span id="papWorsPercentage"></span>%</p>
+                <p><strong>People who like to watch movies:</strong> <span id="moviesRating"></span></p>
+                <p><strong>People who like to listen to radio:</strong> <span id="radioRating"></span></p>
+                <p><strong>People who like to eat out:</strong> <span id="eatOutRating"></span></p>
+                <p><strong>People who like to watch TV:</strong> <span id="tvRating"></span></p>
+            </div>
+            <button onclick="exportResults()">Export Results as JSON</button>
+            
+        </div>
+    </div>
+    <script src="js/sql-wasm.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

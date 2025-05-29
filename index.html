@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifestyle Preferences Survey</title>
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Lifestyle Preferences Survey</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Fill Out Survey</a></li>
+            <li><a href="results.html">View Survey Results</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="form-container">
+            <h1>Lifestyle Preferences Survey Form</h1>
+            <form id="surveyForm">
+                <div>
+                    <label>Full Name</label>
+                    <input type="text" name="full_name" placeholder="Enter your full name" required>
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="example@domain.com" required>
+                </div>
+                <div>
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob" required>
+                </div>
+                <div>
+                    <label>Contact Number</label>
+                    <input type="tel" name="contact_number" placeholder="+1234567890" required>
+                </div>
+                <div class="checkbox-group">
+                    <label>What is your favorite food?</label>
+                    <div>
+                        <label><input type="checkbox" name="food_pizza" value="1"> Pizza</label>
+                        <label><input type="checkbox" name="food_pasta" value="1"> Pasta</label>
+                        <label><input type="checkbox" name="food_pap_wors" value="1"> Pap and Wors</label>
+                        <label><input type="checkbox" name="food_other" value="1"> Other</label>
+                    </div>
+                </div>
+                <div class="radio-group">
+                    <label>Rate the following (1 = Strongly Agree, 5 = Strongly Disagree):</label>
+                    <table class="rating-table">
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th title="Strongly Agree">1</th>
+                                <th title="Agree">2</th>
+                                <th title="Neutral">3</th>
+                                <th title="Disagree">4</th>
+                                <th title="Strongly Disagree">5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="question-text">I like to watch movies</td>
+                                <td><input type="radio" name="rating_movies" value="1" required></td>
+                                <td><input type="radio" name="rating_movies" value="2"></td>
+                                <td><input type="radio" name="rating_movies" value="3"></td>
+                                <td><input type="radio" name="rating_movies" value="4"></td>
+                                <td><input type="radio" name="rating_movies" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td class="question-text">I like to listen to radio</td>
+                                <td><input type="radio" name="rating_radio" value="1" required></td>
+                                <td><input type="radio" name="rating_radio" value="2"></td>
+                                <td><input type="radio" name="rating_radio" value="3"></td>
+                                <td><input type="radio" name="rating_radio" value="4"></td>
+                                <td><input type="radio" name="rating_radio" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td class="question-text">I like to eat out</td>
+                                <td><input type="radio" name="rating_eat_out" value="1" required></td>
+                                <td><input type="radio" name="rating_eat_out" value="2"></td>
+                                <td><input type="radio" name="rating_eat_out" value="3"></td>
+                                <td><input type="radio" name="rating_eat_out" value="4"></td>
+                                <td><input type="radio" name="rating_eat_out" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td class="question-text">I like to watch TV</td>
+                                <td><input type="radio" name="rating_tv" value="1" required></td>
+                                <td><input type="radio" name="rating_tv" value="2"></td>
+                                <td><input type="radio" name="rating_tv" value="3"></td>
+                                <td><input type="radio" name="rating_tv" value="4"></td>
+                                <td><input type="radio" name="rating_tv" value="5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            <p id="errorMessage" class="error"></p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Lifestyle Preferences Survey. Contact: <a href="mailto:internship@tshimologong.joburg">internship@tshimologong.joburg</a></p>
+    </footer>
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>Success!</h2>
+            <p>Survey submitted successfully!</p>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
+    <script src="js/sql-wasm.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
