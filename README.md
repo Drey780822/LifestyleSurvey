@@ -1,88 +1,189 @@
 # Lifestyle Preferences Survey
 
-A web app developed for the **Tshimologong Software Development Internship 2025–2026** practical test. It collects user lifestyle preferences, stores them in-browser using **SQLite via WebAssembly**, and presents results with interactive analysis — all without a backend.
+A web application developed by **Thabang Drey Dikotope** for the **Tshimologong Software Development Internship 2025–2026** practical test. It collects lifestyle preference survey data, stores it in an in-browser SQLite database using WebAssembly, and presents analyzed results with interactive features.
 
+**Project Name**: Lifestyle Preferences Survey  
+**Author**: Thabang Drey Dikotope  
+**Email**: thabangdikotope624@gmail.com  
+**GitHub Repository**: [https://github.com/drey780822/LifestyleSurvey](https://github.com/drey780822/LifestyleSurvey)  
+**GitHub Pages URL**: [https://drey780822.github.io/LifestyleSurvey/](https://drey780822.github.io/LifestyleSurvey/)  
+**Submission Deadline**: Wednesday, June 4, 2025
 
 ## 🔍 Overview
+The Lifestyle Preferences Survey is a client-side web application that enables users to submit lifestyle preference surveys, validates inputs, stores responses in a browser-based SQLite database, and displays statistical analysis of collected data. Built with HTML, CSS, JavaScript, and SQLite via WebAssembly (sql.js), it runs entirely in the browser without a backend server, making it ideal for static hosting on GitHub Pages.
 
-Users complete a lifestyle survey. Inputs are validated and stored locally in a browser-based SQLite database. Results are analyzed and visualized instantly — no internet or server required.
-
+The application meets all Tshimologong Internship requirements, offering a user-friendly interface, robust data storage, accurate analysis, and interactive features like data export and database reset. A detailed project documentation PDF is available in the repository (`LifestyleSurveyDocumentation.pdf`).
 
 ## ✅ Features
 
-### Survey Form:
-- Collects: full name, email, date of birth, contact number.
-- Food preferences (Pizza, Pasta, Pap & Wors, Other) via checkboxes.
-- Lifestyle ratings (movies, radio, eating out, TV) on a 1–5 scale using tooltips.
-- Placeholders help guide user input.
+### Survey Input (`index.html`)
+- Collects personal details: full name, email, date of birth, contact number.
+- Captures favorite foods (Pizza, Pasta, Pap and Wors, Other) via checkboxes.
+- Rates lifestyle preferences (movies, radio, eating out, TV) on a 1–5 scale (1 = Strongly Agree, 5 = Strongly Disagree) using a table-based layout with tooltips.
+- Displays a success modal upon valid submission.
 
-### Validation:
-- All fields are required.
-- Email must be in a valid format.
-- Age must be between 5 and 120 (calculated from DOB).
-- At least one food option must be selected.
-- All lifestyle questions must be answered.
+### Validation
+- All personal details fields are mandatory.
+- Email must follow a valid format (e.g., `example@domain.com`).
+- Age (calculated from date of birth) must be between 5 and 120 years.
+- At least one favorite food must be selected.
+- All lifestyle rating questions must be answered.
+- Error messages guide users to correct invalid inputs.
 
-### Results Page:
-- Total number of submissions
-- Average age of participants
-- Oldest and youngest ages
-- Percentage of people who like each food
-- Average rating per lifestyle activity
-- Displays "No Surveys Available" if database is empty
+### Results Analysis (`results.html`)
+- Displays:
+  - Total number of surveys submitted.
+  - Average age of participants.
+  - Oldest and youngest participant ages.
+  - Percentage of participants who like each food option.
+  - Average ratings for each lifestyle category.
+- Shows "No Surveys Available" when the database is empty.
+- Includes buttons to:
+  - **Clear All Surveys**: Resets the database.
+  - **Export Results**: Downloads survey data as a JSON file.
 
-### Additional Features:
-- Confirmation modal after submission
-- "Clear All Surveys" button to reset data
-- Export results as `.json` file
-- Tooltips for ratings
-- Data saved with `localStorage` (persistent across sessions)
+### Data Storage
+- Uses an in-browser SQLite database via WebAssembly (sql.js).
+- Stores data in a `Surveys` table with columns for personal details, food preferences, and ratings.
+- Persists data in `localStorage` under the key `surveyDb` for cross-session access.
+
+### Deployment
+- Hosted on GitHub Pages for static, serverless access.
+- Compatible with modern browsers (Chrome, Firefox, Edge) supporting WebAssembly.
+
+## 🛠 Technical Architecture
+
+### Tech Stack
+- **Frontend**:
+  - **HTML**: Structure for `index.html` (survey form) and `results.html` (results display).
+  - **CSS**: Responsive styling in `css/styles.css` (teal, cream, coral theme).
+  - **JavaScript**: Logic in `js/main.js` (form handling, validation, modals, export) and `js/db.js` (database operations).
+- **Database**: SQLite via WebAssembly (`js/sql-wasm.js`, `js/sql-wasm.wasm`), persisted in `localStorage`.
+- **Version Control**: Git and GitHub.
+- **Development Environment**: Visual Studio Code.
+- **Deployment**: GitHub Pages.
+
+### File Structure
+
+LifestyleSurvey/ ├── index.html # Survey input form with submission modal ├── results.html # Survey results, export, and clear options ├── css/ │ └── styles.css # Custom styling ├── js/ │ ├── main.js # UI logic, validation, modals, export │ ├── db.js # SQLite database operations │ ├── sql-wasm.js # SQLite JavaScript wrapper │ └── sql-wasm.wasm # WebAssembly binary for SQLite ├── README.md # Project overview and setup └── LifestyleSurveyDocumentation.pdf # Detailed project documentation
 
 
-## 🚀 How to Run
+### Database Schema
+- **Table**: `Surveys`
+- **Columns**:
+  - `id`: INTEGER, PRIMARY KEY, AUTOINCREMENT
+  - `full_name`: VARCHAR(100), NOT NULL
+  - `email`: VARCHAR(100), NOT NULL
+  - `dob`: VARCHAR(10), NOT NULL (YYYY-MM-DD)
+  - `contact_number`: VARCHAR(20), NOT NULL
+  - `food_pizza`, `food_pasta`, `food_pap_wors`, `food_other`: INTEGER, NOT NULL (1 = selected, 0 = not)
+  - `rating_movies`, `rating_radio`, `rating_eat_out`, `rating_tv`: INTEGER, NOT NULL (1–5)
+- **Storage**: In-memory SQLite, serialized to `localStorage` as `surveyDb`.
 
-### 1. Clone the Repo:
-git clone https://github.com/drey780822/LifestyleSurvey.git
-2. Download SQLite WebAssembly:
-Download sql-wasm.wasm from the sql.js releases
+### Why No Backend?
+The application uses SQLite compiled to WebAssembly via sql.js, enabling database operations entirely in the browser. This approach:
+- Aligns with GitHub Pages’ static hosting limitations.
+- Simplifies setup for evaluators, requiring only a browser.
+- Meets internship requirements for a lightweight, accessible demo.
+- Handles form submission, storage, and analysis client-side.
 
-Place it in the js/ folder
+## 🚀 Setup Instructions for Evaluators
 
-3. Open in Browser:
-Open index.html in Chrome, Firefox, or another modern browser
+### Running on GitHub Pages
+1. Visit [https://drey780822.github.io/LifestyleSurvey/](https://drey780822.github.io/LifestyleSurvey/) in a modern browser (Chrome, Firefox, Edge).
+2. Fill out and submit the survey in `index.html`.
+3. Navigate to `results.html` to view aggregated results.
+4. Use the “Clear All Surveys” button to reset the database and “Export Results” to download JSON data.
 
-Submit a survey
+### Running Locally
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/drey780822/LifestyleSurvey.git
+   cd LifestyleSurvey
 
-Open results.html to view analysis
 
 
-📁 Project Structure
-File/Folder	Description
-index.html	Survey form with confirmation modal
-results.html	Displays survey analysis and export/clear
-css/styles.css	Custom styles (teal, cream, coral theme)
-js/main.js	UI logic, validation, export & clear logic
-js/db.js	SQLite operations
-js/sql-wasm.js	SQLite wrapper
-js/sql-wasm.wasm	WebAssembly binary for in-browser SQLite
 
-🧪 Testing Tips
-Submit invalid data (e.g., wrong email, age < 5) to check validation
 
-Clear surveys and verify empty state on results page
+Ensure js/sql-wasm.wasm is in the js/ folder. If missing, download from sql.js releases (e.g., version 1.8.0).
 
-Submit new survey to refresh results
 
-Export .json file and check contents
 
-Hover over rating table to test tooltips
+Start a local server to avoid CORS issues:
+
+python -m http.server 8000
+
+
+
+Open http://localhost:8000 in a browser and test the application.
+
+Notes
+
+
+
+
+
+Browser Compatibility: Requires WebAssembly support (modern browsers like Chrome, Firefox, Edge).
+
+
+
+Data Storage: Survey data is stored in localStorage (surveyDb), isolated per browser.
+
+
+
+Troubleshooting: Check the browser Console (F12 → Console) for errors (e.g., sql-wasm.wasm not found). Use a local server for local testing, not direct file access.
+
+🎥 Demo Video
+
+A 2–3 minute demo video will be submitted, showcasing:
+
+
+
+
+
+Survey submission with valid and invalid inputs (validation).
+
+
+
+Results display with computed metrics (total surveys, ages, food percentages, ratings).
+
+
+
+“Clear All Surveys” button resetting to “No Surveys Available.”
+
+
+
+JSON export functionality.
+
+
+
+Table-based ratings with tooltips.
+
+
+
+Deployment on GitHub Pages (https://drey780822.github.io/LifestyleSurvey/).
+
+📚 Documentation
+
+For a detailed project overview, including requirements, technical architecture, development plan, and challenges, see LifestyleSurveyDocumentation.pdf in the repository.
 
 🙌 Acknowledgments
-Created by Thabang Dikotope
-For the Tshimologong Software Development Internship 2025–2026
-Built with HTML, CSS, JavaScript, SQLite, and WebAssembly
 
-🔗 Links
-GitHub Repository: https://github.com/drey780822/LifestyleSurvey
 
-Live App: https://drey780822.github.io/LifestyleSurvey/
+
+
+
+Created for the Tshimologong Software Development Internship 2025–2026.
+
+
+
+Built with HTML, CSS, JavaScript, SQLite, and WebAssembly.
+
+
+
+Thanks to sql.js for enabling in-browser SQLite functionality.
+
+
+
+Contact: Thabang Drey Dikotope (thabangdikotope624@gmail.com)
+Submission Date: June 3, 2025
