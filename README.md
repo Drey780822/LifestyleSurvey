@@ -1,6 +1,6 @@
 # Lifestyle Preferences Survey
 
-A web application developed by **Thabang Drey Dikotope** for the **Tshimologong Software Development Internship 2025–2026** practical test. It collects lifestyle preference survey data, stores it in an in-browser SQLite database using WebAssembly, and presents analyzed results with interactive features.
+A web application developed for the **Tshimologong Software Development Internship 2025–2026** practical test. It collects lifestyle preference survey data, stores it in an in-browser SQLite database using WebAssembly, and presents analyzed results with interactive features.
 
 **Project Name**: Lifestyle Preferences Survey  
 **Author**: Thabang Drey Dikotope  
